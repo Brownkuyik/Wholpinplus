@@ -1,0 +1,352 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>K_AND_SON STORE </title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'accoun/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'accoun/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'accoun/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'accoun/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'accoun/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'accoun/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'accoun/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static 'accoun/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'accoun/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'accoun/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/style.css' %}" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="{% url 'k_store:homePage' %}" class="logo d-flex align-items-center">
+        <!-- <img src="{% static 'accoun/img/logo.png' %}" alt=""> -->
+        <span class="d-none d-lg-block" style="color: PINK;">K AND SON STORE</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="search for product" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center", style="margin-left: -40%;">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+        <a class="nav-link nav-icon" href="#">
+          <i class="bi bi-cart"></i>
+        </a>
+        {% if user.is_authenticated %}
+        <li class="nav-link nav-icon">
+          <a class="nav-link nav-icon" href="{% url 'accounts:login' %}">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <span>Log_out</span>
+          </a>
+        </li>
+        {% else %}
+
+        
+        
+
+        <li class="nav-link nav-icon">
+          <a class="nav-link nav-icon" href="{% url 'accounts:login' %}">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <span>Login</span>
+          </a>
+        </li>
+        {% endif %}
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-question-circle"></i>
+            <span class="badge" style="color: rgb(53, 105, 189);"> Help</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+
+            
+              </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-exclamation-circle text-warning"></i>
+              <div>
+                <a class="nav-link nav-icon" href="{% url 'k_store:about' %}">
+                <h4> <span>About Us</span> </h4>
+                </a>
+                            
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-question-circle"></i>
+              <div>
+                <h4>FAQ</h4>
+                
+                
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-check-circle text-success"></i>
+              <div>
+                <h4>Track order</h4>
+               
+                
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+        <li class="nav-item dropdown">
+
+         <!-- End Messages Icon -->
+
+          </ul><!-- End Messages Dropdown Items -->
+
+        </li><!-- End Messages Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'k_store:homePage' %}">
+          <i class="bi bi-grid"></i>
+          <span>Home</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Cloths</span>
+        </a>
+
+        <a class="nav-link collapsed" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Shoes</span>
+        </a>
+
+        
+
+        <a class="nav-link collapsed"  href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Rings</span></i>
+        </a>
+
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse"  href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Other Assessories</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="components-alerts.html">
+              <i class="bi bi-circle"></i><span>belt</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-accordion.html">
+              <i class="bi bi-circle"></i><span>googles</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-badges.html">
+              <i class="bi bi-circle"></i><span>Neckless</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-breadcrumbs.html">
+              <i class="bi bi-circle"></i><span>Chains</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-buttons.html">
+              <i class="bi bi-circle"></i><span>Caps</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-cards.html">
+              <i class="bi bi-smartwatch"></i><span>Wrist watch</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-tabs.html">
+              <i class="bi bi-circle"></i><span>Bangles</span>
+            </a>
+          </li>
+
+         
+        </ul>
+      </li><!-- End Components Nav -->
+
+
+
+      <li class="nav-heading">Pages</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'k_store:about' %}">
+          <i class="bi bi-person"></i>
+          <span>About</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'accounts:signup' %}">
+          <i class="bi bi-card-list"></i>
+          <span>signup</span>
+        </a>
+      </li><!-- End Register Page Nav -->
+
+      
+      <!-- End Blank Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+  <br>
+{% block content %}
+
+{% endblock %}
+  
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>K_AND_SON STORE</h3>
+              <p class="pb-3"><em>Our company thou working online for your purchase of any product is located at</em></p>
+              <p>
+                #300 NWAIBA ROAD, UYO <br>
+                AKWA IBOM STATE 535022, NIGERIA.<br><br>
+                <strong>Phone:</strong> +234 8159823821<br>
+                <strong>Email:</strong> kuyikbrown1@gmail.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="{{x.twitter_handel}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="{{x.facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="{{x.instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="{{x.skype}}" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="{{x.linkin}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div> -->
+
+          <div class="col-lg-2 col-md-6 footer-links" style="align-items: stretch;">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <!-- <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div> -->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>K_AND_SON STORE</span></strong>. All Rights Reserved {% now 'Y' %}
+      </div>
+      
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'accoun/vendor/apexcharts/apexcharts.min.js' %}"></script>
+  <script src="{% static 'accoun/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'accoun/vendor/chart.js' %}/chart.min.js' %}"></script>
+  <script src="{% static 'accoun/vendor/echarts/echarts.min.js' %}"></script>
+  <script src="{% static 'accoun/vendor/quill/quill.min.js' %}"></script>
+  <script src="{% static 'accoun/vendor/simple-datatables/simple-datatables.js' %}"></script>
+  <script src="{% static 'accoun/vendor/tinymce/tinymce.min.js' %}"></script>
+  <script src="{% static 'accoun/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'accoun/js/main.js' %}"></script>
+
+</body>
+
+</html>

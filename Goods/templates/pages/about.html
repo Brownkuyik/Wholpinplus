@@ -1,0 +1,116 @@
+{% extends 'index.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'assets1/css/templatemo-stand-blog.css' %}">
+
+<main id="main" class="main">
+  <section class="about-us">
+    <div class="container">
+        
+      <div class="row">
+        <div class="col-lg-12">
+          <img src="{% static 'assets1/images/about-us.jpg' %}" alt="">
+          <p>Here in <a rel="nofollow" href="{% url 'k_store:homePage' %}" target="_parent">K_AND_SON STORE</a>, we our your prefered online store which our purpose is to make sure that you our customers is being served with our quality product of <a rel="nofollow" href="https://templatemo.com/tag/portfolio" target="_parent">Cloths</a>, Shoes of various size and types, caps for different genders as well as both adult and children, we also have in stock different kind of <a rel="nofollow" href="https://templatemo.com/tag/restaurant" target="_parent">Rings</a> for any kind of purpose,  in our store also incude neckless, chains etc. 
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+      <h4>OUR MISSION</h4>
+          <p>Our mission in <a rel="nofollow" href="{% url 'k_store:homePage' %}" target="_parent">K_AND_SON STORE</a> is 
+          to make sure that you have the best and quality of our materials down to your doorstep at an affordable rate and at the right time you are in need of it. <br>
+          We are also in the mission of having you the customer reaching out to your favourite band manager about the product you have and you feedback concerning it. </p>
+      </div>
+      <div class="col-lg-6">
+      <h4>OUR VISION</h4>
+          <p>Our vision here at <a rel="nofollow" href="{% url 'k_store:homePage' %}" target="_parent">K_AND_SON STORE</a> is to make sure that at anytime anywhere we can be able to reach you demand of quality and affordable outfit to suite you event. <br>
+          We are also in the vision of making sure that we put smile on other people's face around the world as we did to you, by giving them the rightful and best product they may be in demand of at that time. </p>
+      </div>
+    </div>
+    
+  </section>
+    
+
+  <section class="section contact">
+
+    <div class="row gy-4">
+
+      <div class="col-xl-6">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="info-box card">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Address</h3>
+              <p>A108 Adam Street,<br>New York, NY 535022</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="info-box card">
+              <i class="bi bi-telephone"></i>
+              <h3>Call Us</h3>
+              <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="info-box card">
+              <i class="bi bi-envelope"></i>
+              <h3>Email Us</h3>
+              <p>info@example.com<br>contact@example.com</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="info-box card">
+              <i class="bi bi-clock"></i>
+              <h3>Open Hours</h3>
+              <p>Monday - Friday<br>9:00AM - 05:00PM</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-xl-6">
+        <div class="card p-4">
+          <form action="forms/contact.php" method="post" class="php-email-form">
+            <div class="row gy-4">
+
+              <div class="col-md-6">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+              </div>
+
+              <div class="col-md-6 ">
+                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+              </div>
+
+              <div class="col-md-12">
+                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+              </div>
+
+              <div class="col-md-12">
+                <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+              </div>
+
+              <div class="col-md-12 text-center">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                <button type="submit">Send Message</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+{% endblock %}
